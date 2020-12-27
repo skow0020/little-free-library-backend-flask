@@ -11,22 +11,14 @@ from sqlalchemy.sql.elements import Null
 DATABASE_URL = os.environ['DATABASE_URL']
 
 # conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-conn = Null
-try:
-    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
- 
-    if conn is not None:
-        print('Connection established to PostgreSQL.')
-    else:
-        print('Connection not established to PostgreSQL.')
-        
-except (Exception, psycopg2.DatabaseError) as error:
-    print(error)
- 
-finally:
-    if conn is not None:
-        conn.close()
-        print('Finally, connection closed.')
+
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+
+if conn is not None:
+    print('Connection established to PostgreSQL.')
+else:
+    print('Connection not established to PostgreSQL.')
+
 
 
 app = Flask(__name__)
