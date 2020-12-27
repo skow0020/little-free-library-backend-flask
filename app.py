@@ -38,9 +38,15 @@ def hello_world():
 def get_books():
     with conn:
       with conn.cursor() as curs:
-        return curs.execute("SELECT * FROM books;")
+        curs.execute("SELECT * FROM books;")
 
-    conn.close()
+        records = curs.fetchall()
+        print("Total rows are:  ", len(records))
+        print("Printing each row")
+        for row in records:
+            print("Id: ", row[0])
+
+        return records[0][0]
     
 
 
