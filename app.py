@@ -29,7 +29,7 @@ def get_books():
     ])
 
 
-@app.route("/book", methods=['POST'])
+@app.route("/books", methods=['POST'])
 def post_book():
     randomID = int(''.join(["{}".format(randint(0, 9)) for num in range(0, 4)]))
 
