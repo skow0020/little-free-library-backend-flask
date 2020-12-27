@@ -7,8 +7,5 @@ class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String())
 
-    def __init__(self, url):
-        self.id = id
-
     def __repr__(self):
         return '<title: {}>'.format(self.title)
