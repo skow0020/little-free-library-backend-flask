@@ -22,10 +22,10 @@ class Book(db.Model):
     __tablename__ = 'books'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String())
+    title = db.Column(db.String())
 
     def __init__(self, url):
         self.id = id
 
     def __repr__(self):
-        return '<name {}>'.format(self.name)
+        return '<title: {}>'.format(self.title)

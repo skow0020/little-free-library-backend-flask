@@ -1,4 +1,3 @@
-from models import Result, Book
 import json
 import os
 
@@ -22,6 +21,7 @@ app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
+from models import *
 
 @app.route('/')
 def hello_world():
@@ -31,6 +31,7 @@ def hello_world():
 @app.route("/books", methods=['GET'])
 def get_books():
     return Book.query.all()
+
     # with conn:
     #     with conn.cursor() as curs:
     #         curs.execute("SELECT * FROM books;")
