@@ -4,6 +4,7 @@ import json
 from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
+import json
 import os
 import psycopg2
 from sqlalchemy.sql.elements import Null
@@ -46,7 +47,7 @@ def get_books():
         for row in records:
             print("Id: ", row[0])
 
-        return records[0][0]
+        return json.dumps(records)
     
 
 
