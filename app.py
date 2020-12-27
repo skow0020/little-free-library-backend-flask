@@ -38,7 +38,7 @@ def hello_world():
 def get_books():
     with conn:
       with conn.cursor() as curs:
-        curs.execute("SELECT * FROM books;")
+        return curs.execute("SELECT * FROM books;")
 
     conn.close()
     
