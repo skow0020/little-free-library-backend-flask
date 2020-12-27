@@ -24,20 +24,21 @@ db = SQLAlchemy(app)
 def hello_world():
     return 'Hello, World!'
 
+
 @app.route("/books", methods=['GET'])
 def get_books():
     with conn:
-      with conn.cursor() as curs:
-        curs.execute("SELECT * FROM books;")
+        with conn.cursor() as curs:
+            curs.execute("SELECT * FROM books;")
 
-        records = curs.fetchall()
-        print("Total rows are:  ", len(records))
-        print("Printing each row")
-        for row in records:
-            print("Id: ", row[0])
+            records = curs.fetchall()
+            print("Total rows are:  ", len(records))
+            print("Printing each row")
+            for row in records:
+                print("Id: ", row[0])
 
-        return json.dumps(records)
-    
+            return json.dumps(records)
+
 
 if __name__ == '__main__':
     app.run()
