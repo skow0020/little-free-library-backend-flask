@@ -30,8 +30,7 @@ def hello_world():
 
 @app.route("/books", methods=['GET'])
 def get_books():
-    return Book.query.all()
-
+    return jsonify(Book.query.all())
     # with conn:
     #     with conn.cursor() as curs:
     #         curs.execute("SELECT * FROM books;")
