@@ -30,7 +30,7 @@ def hello_world():
 
 @app.route("/books", methods=['GET'])
 def get_books():
-    books = jsonify(Book.query.all())
+    books = Book.query.all()
     return {
         'book': books[0].title
     }
