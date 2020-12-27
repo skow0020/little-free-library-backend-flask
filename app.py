@@ -38,9 +38,9 @@ db = SQLAlchemy(app)
 # from models import *
 
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    return render_template('index.html')
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
 
 @app.route("/books", methods=['GET'])
 def get_books():
